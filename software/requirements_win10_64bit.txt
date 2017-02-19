@@ -1,0 +1,1 @@
+https://pypi.python.org/packages/2b/89/c1e5b28880468870c7f395fcd383aac3893f7bdcc237266498633b20ed61/numpy-1.12.0-cp35-none-win_amd64.whl#md5=ce2c1303b7be932e216388ba2480f581
