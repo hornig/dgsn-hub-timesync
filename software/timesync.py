@@ -1,18 +1,34 @@
 import numpy as np
 #import matplotlib.pylab as plt
-import tiqs
+#import tiqs
 import time
-import do
+#import do
 import os
-
+import importlib
 
 def stream_seq(stream, seq_start, frame, extra):
     seq_len = frame + extra
     return np.abs(stream[seq_start : seq_start + seq_len : 2]+ 1j * stream[seq_start + 1 : seq_start + seq_len : 2])
 
 
+def find_file_in_folder(folder, needle):
+    # traverse root directory, and list directories as dirs and files as files
+    list = []
+    for root, dirs, files in os.walk(folder):
+        path = root.split(os.sep)
+        #print((len(path) - 1) * '---', os.path.basename(root))
+        for file in files:
+            if file.find(needle) > -1:
+                list.append(root + os.path.sep + file)
+                #print(root + os.path.sep + file)
+    return list
 
 def run(path_storing, input_filename):
+    load = str.join(".", (find_file_in_folder(".", "do.py")[0][1:].split(".")[0].split(os.path.sep)[1:]))
+    do = importlib.import_module(load)
+
+    load = str.join(".", (find_file_in_folder(".", "tiqs.py")[0][1:].split(".")[0].split(os.path.sep)[1:]))
+    tiqs = importlib.import_module(load)
 
     stream = np.memmap(input_filename)
     stream = -127 + stream
