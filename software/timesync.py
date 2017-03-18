@@ -388,7 +388,7 @@ def run(path_storing, input_filename):
             filename = input_filename.split(".")[0].split("/")[-1]
         #print(filename)
 
-        np.save(path_storing + filename, [gps_pps_timestamp_smoothed_all, smoothed_x_all, gps_long_all, gps_lat_all, gps_alt_all, gps_hdop_all, gps_fixquality_all, gps_satellites_all])
+        np.save(path_storing + filename, [gps_pps_timestamp_smoothed_all, smoothed_x_all, gps_long_all, gps_lat_all, gps_alt_all, passed_ransac, splitme[0], gps_pps_timestamp, gps_pps_start, gps_pps_timestamp_smoothed, smoothed_x, gps_hdop_all, gps_fixquality_all, gps_satellites_all, period_length1[np.argmax(best_period1)]])
 
     else:
         if input_filename.find(os.path.sep) > -1:
