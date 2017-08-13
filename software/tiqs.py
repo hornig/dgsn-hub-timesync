@@ -259,7 +259,7 @@ def detect_gps(input_stream, other_gaps_start):
     # starting the quick finding of gps gaps
 
     #number = np.min(binned) + (np.mean(input_stream)-np.min(binned))/3.0
-    number = np.min(binned) + (statistics(binned, 3)-np.min(binned))/3.0
+    number = np.min(binned) + (statistics(binned, 4)-np.min(binned))/3.0
     print("number", number, np.min(input_stream), np.mean(input_stream), np.min(binned))
     gap_state= find_gaps1(binned, number)
     gap_gps_1pps = gap_resetter1(gap_state, 6, 13) # gps tiqs
