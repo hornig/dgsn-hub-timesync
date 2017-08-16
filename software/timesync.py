@@ -51,7 +51,7 @@ def run(path_storing, input_filename):
         #print("binning1", time.time() - time1)
 
         binned_min = np.min(binned)
-        threshold = binned_min + (tiqs.statistics(binned, 2)-binned_min)/3.0
+        threshold = binned_min + (tiqs.statistics(binned, 3)-binned_min)/3.0
         #print("threshold", time.time() - time1)
 
         gap_state= tiqs.find_gaps1(binned, threshold)
